@@ -1,3 +1,5 @@
 class_management/
 
 \.DS_Store
+
+__pycache__/
