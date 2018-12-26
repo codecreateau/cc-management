@@ -3,3 +3,7 @@ class_management/
 \.DS_Store
 
 __pycache__/
+
+\.env
+
+*.log
