@@ -4,6 +4,7 @@ CREATE TABLE teachers (
     dob         DATE        NOT NULL,
     wwcc        VARCHAR(32) UNIQUE NOT NULL,
     wwcc_expiry DATE        NOT NULL,
+    abn         VARCHAR(16),
     bsb         VARCHAR(8),
     acc_no      VARCHAR(32),
     PRIMARY KEY(id)

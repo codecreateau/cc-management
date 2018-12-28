@@ -1,6 +1,6 @@
 CREATE TABLE INSTITUTIONS (
     id              SERIAL          PRIMARY KEY,
-    name            VARCHAR(128)    UNIQUE,
+    name            VARCHAR(128)    UNIQUE NOT NULL,
     street_address  VARCHAR(128)    NOT NULL,
     city            VARCHAR(64)     NOT NULL,
     state           VARCHAR(64)     NOT NULL,
