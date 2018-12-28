@@ -2,13 +2,14 @@
 # CSV reader which inputs rows as records in the Code Create database
 # Written by Nathan Lam (nathan@codecreate.com.au)
 # Started on 27th December, 2018
-import csv, cc_db, logging, os, sys
+import csv, cc_db, logging, os, sys, time
 
 def main():
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 3:
         print('Missing Arguments: program must be run using `python <csv_file> <table_name>`')
+    dirname = os.path.dirname(os.path.abspath(__file__))
     log_name = 'csv2db' + time.strftime('%Y%m%d-%H%M%S') + '.log'
-    filename = os.path.join(dirname, 'logs', log_name)
+    filename = os.path.join(dirname, '..', 'logs', log_name)
     logging.basicConfig(filename=filename, level=logging.DEBUG)
     read(sys.argv[1], sys.argv[2])
 

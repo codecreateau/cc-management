@@ -160,7 +160,7 @@ def main():
     # Initialise log file
     dirname = os.path.dirname(os.path.abspath(__file__))
     log_name = 'cc_db' + time.strftime('%Y%m%d-%H%M%S') + '.log'
-    filename = os.path.join(dirname, 'logs', log_name)
+    filename = os.path.join(dirname, '..', 'logs', log_name)
     logging.basicConfig(filename=filename, level=logging.DEBUG)
 
     # Begin basic tests
@@ -228,7 +228,7 @@ def close_db(conn):
 
 def init(conn):
     dirname = os.path.dirname(os.path.abspath(__file__))
-    filename = os.path.join(dirname, 'sql', 'views', 'check_tables_exist.sql')
+    filename = os.path.join(dirname, '..', 'sql', 'views', 'check_tables_exist.sql')
     with open(filename, 'r') as fp:
         cur = conn.cursor()
         sql_cmd = fp.read().replace('<table_names>', ', '.join(f'\'{name}\'' for name in TABLE_FIELDS.keys()))
@@ -248,7 +248,7 @@ def check_for_table(conn, tables, table_name):
     dirname = os.path.dirname(os.path.abspath(__file__))
     if table_name not in tables:
         cur = conn.cursor()
-        filename = os.path.join(dirname, 'sql', 'create_table', table_name + '.sql')
+        filename = os.path.join(dirname, '..', 'sql', 'create_table', table_name + '.sql')
         with open(filename, 'r') as sql_cmd:
             cur.execute(sql_cmd.read())
         cur.close()
